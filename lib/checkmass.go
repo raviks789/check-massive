@@ -46,7 +46,7 @@ type example interface{
 //)
 
 const (
-	PERFORMANCPERFEDATA = 0
+	PERFORMANCEDATA = 0
 	OUTPUT = 1
 	LONGOUTPUT = 2
 )
