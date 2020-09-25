@@ -31,22 +31,22 @@ var opts struct {
 	Host     string `long:"host" short:"H" description:"check target IP Address"`
 	Count    int    `long:"count" short:"n" default:"1" description:"sending (and receiving) count ping packets"`
 	WaitTime int    `long:"wait-time" short:"w" default:"1000" description:"wait time, Max RTT(ms)"`
-	Output   string  `long:"output" short:"o" description:"Type of output"`
+	Output   int  `long:"output" short:"o" description:"Type of output"`
 }
 
 type example interface{
 
 }
+//
+//const (
+//	OK Status = iota
+//	WARNING
+//	CRITICAL
+//	UNKNOWN
+//)
 
 const (
-	OK Status = iota
-	WARNING
-	CRITICAL
-	UNKNOWN
-)
-
-const (
-	PERFORMANCEDATA = 0
+	PERFORMANCPERFEDATA = 0
 	OUTPUT = 1
 	LONGOUTPUT = 2
 )
