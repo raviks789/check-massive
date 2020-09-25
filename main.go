@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/signal"
 	"syscall"
@@ -15,6 +16,8 @@ func main() {
 		go handleSignal(ch)
 	}
 	go checkmass.Do()
+
+	fmt.Printf("go")
 }
 
 func handleSignal(ch <-chan os.Signal) {

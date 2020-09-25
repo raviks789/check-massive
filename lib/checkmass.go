@@ -13,7 +13,7 @@ import (
 	//"github.com/Icinga/icingadb/connection"
 	//"github.com/Icinga/icingadb/utils"
 	"github.com/jessevdk/go-flags"
-	//"github.com/mackerelio/checkers"
+	"github.com/mackerelio/checkers"
 )
 
 func isIPv6(host string) bool {
@@ -51,14 +51,14 @@ const (
 	LONGOUTPUT = 2
 )
 
-func run(args []string) (string, string){                     //*checkers.Checker
+func run(args []string) *checkers.Checker{                     //*checkers.Checker
 	_, err := flags.ParseArgs(&opts, args)
 	if err != nil {
 		os.Exit(1)
 	}
 
 	var msg string
-	chkSt := "OK"     //checkers.OK
+	chkSt := checkers.OK    //checkers.OK
 
 	switch opts.Output {
 	case PERFORMANCEDATA:
@@ -70,13 +70,12 @@ func run(args []string) (string, string){                     //*checkers.Checke
 	default:
 		msg = fmt.Sprintf("The default output is dummy output")
 	}
-	return chkSt, msg  //checkers.NewChecker(chkSt, msg)
+	return checkers.NewChecker(chkSt, msg)  //checkers.NewChecker(chkSt, msg)
 }
 
 // Do the plugin
 func Do() {
-	chkSt, msg := run(os.Args[1:])
-	//ckr.Name = "Mass-Performance-Data"
-	//ckr.Exit()
-	fmt.Printf(chkSt, msg)
+	ckr := run(os.Args[1:])
+	ckr.Name = "Mass-Performance-Data"
+	ckr.Exit()
 }
