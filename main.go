@@ -4,7 +4,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"checkmass"
+	"github.com/raviks789/check-massive/lib"
 	log "github.com/sirupsen/logrus"
 )
 

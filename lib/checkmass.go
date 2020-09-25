@@ -13,7 +13,7 @@ import (
 	//"github.com/Icinga/icingadb/connection"
 	//"github.com/Icinga/icingadb/utils"
 	"github.com/jessevdk/go-flags"
-	"github.com/mackerelio/checkers"
+	//"github.com/mackerelio/checkers"
 )
 
 func isIPv6(host string) bool {
@@ -31,6 +31,7 @@ var opts struct {
 	Host     string `long:"host" short:"H" description:"check target IP Address"`
 	Count    int    `long:"count" short:"n" default:"1" description:"sending (and receiving) count ping packets"`
 	WaitTime int    `long:"wait-time" short:"w" default:"1000" description:"wait time, Max RTT(ms)"`
+	Output   string  `long:"output" short:"o" description:"Type of output"`
 }
 
 type example interface{
